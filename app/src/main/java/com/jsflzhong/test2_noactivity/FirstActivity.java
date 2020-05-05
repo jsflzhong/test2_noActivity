@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,9 +30,13 @@ public class FirstActivity extends AppCompatActivity {
     private void loadButton() {
         loadButton1();
         loadButton2();
+        loadButton3();
+        loadButton4();
+        loadButton5();
     }
 
     /**
+     * 显示intent
      * 加载第二个button,事件中跳到第二个活动(中的第二个布局)中去.
      */
     private void loadButton2() {
@@ -39,10 +44,70 @@ public class FirstActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //新建一个intent,用于在点击第一个button时,打开第二个活动.
+                //新建一个intent,用于在点击第二个button时,打开第二个活动.
                 //而第二个活动中又调用了自定义的第二个layout,所以UI上会出来第二个布局.
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                 //执行上面的intent, 调用内置API.
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * 隐式intent1.
+     * 加载第三个button,事件中跳到第二个活动(中的第二个布局)中去.
+     * 在AndroidManifest.xml中使用default的category,此处不用调用category.
+     */
+    private void loadButton3() {
+        Button button3 = findViewById(R.id.button_3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //新建一个intent,用于在点击第三个button时,隐式的打开第二个活动.
+                //字符串需要与manifest.xml中的intent-filter中的字符串相匹配
+                //该字符串是定义在manifest.xml中的SecondActivity中的,即,当点击firstActivity中的该按钮时,会跳转到secondActivity的layout中去.
+                Intent intent = new Intent("com.example.activitytest.ACTION_START");
+                //执行上面的intent, 调用内置API.
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * 隐式intent2.
+     * 加载第四个button,事件中跳到第二个活动(中的第二个布局)中去.
+     * 在AndroidManifest.xml中使用自定义的的category,此处需要调用category.
+     */
+    private void loadButton4() {
+        Button button3 = findViewById(R.id.button_4);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //新建一个intent,用于在点击第四个button时,隐式的打开第二个活动.
+                //字符串需要与manifest.xml中的intent-filter中的字符串相匹配
+                //该字符串是定义在manifest.xml中的SecondActivity中的,即,当点击firstActivity中的该按钮时,会跳转到secondActivity的layout中去.
+                Intent intent = new Intent("com.example.activitytest.ACTION_START");
+                //由于manifest.xml中配置了非default的category,所以这里需要调用该category.
+                intent.addCategory("android.intent.category.MY_CATEGORY");
+                //执行上面的intent, 调用内置API.
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * 隐式intent3.
+     * 加载第五个button,事件中: 调用系统的浏览器,打开指定的网址
+     * 注意: 并不是内嵌入系统浏览器, 而是调用并跳转过去.
+     */
+    private void loadButton5() {
+        Button button3 = findViewById(R.id.button_5);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //安卓系统内置的动作常量
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://www.baidu.com"));
                 startActivity(intent);
             }
         });

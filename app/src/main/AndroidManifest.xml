@@ -20,7 +20,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondActivity"></activity>
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+                <!--表示:当前activity活动可以响应"com.example.activitytest.ACTION_START"这个action.-->
+                <!--注意: 字符串需要与activity中的new Intent中的字符串相匹配-->
+                <!--该action,是被firstActivity中调用的,即,在firstActivity中点击按钮时,会跳转到本secondActivity的layout中-->
+                <action android:name="com.example.activitytest.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.MY_CATEGORY"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
