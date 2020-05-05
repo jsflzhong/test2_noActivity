@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.jsflzhong.test2_noactivity">
 
     <application
@@ -19,15 +20,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SecondActivity">
             <intent-filter>
-                <!--表示:当前activity活动可以响应"com.example.activitytest.ACTION_START"这个action.-->
-                <!--注意: 字符串需要与activity中的new Intent中的字符串相匹配-->
-                <!--该action,是被firstActivity中调用的,即,在firstActivity中点击按钮时,会跳转到本secondActivity的layout中-->
-                <action android:name="com.example.activitytest.ACTION_START"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.MY_CATEGORY"/>
+
+                <!-- 表示:当前activity活动可以响应"com.example.activitytest.ACTION_START"这个action. -->
+                <!-- 注意: 字符串需要与activity中的new Intent中的字符串相匹配 -->
+                <!-- 该action,是被firstActivity中调用的,即,在firstActivity中点击按钮时,会跳转到本secondActivity的layout中 -->
+                <action android:name="com.example.activitytest.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ThirdActivity">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <!--让第三个activity可以打开网页(伪)-->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="http" />
             </intent-filter>
         </activity>
     </application>

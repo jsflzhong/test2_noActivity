@@ -33,6 +33,7 @@ public class FirstActivity extends AppCompatActivity {
         loadButton3();
         loadButton4();
         loadButton5();
+        loadButton6();
     }
 
     /**
@@ -97,6 +98,7 @@ public class FirstActivity extends AppCompatActivity {
 
     /**
      * 隐式intent3.
+     * --ACTION_VIEW 浏览器
      * 加载第五个button,事件中: 调用系统的浏览器,打开指定的网址
      * 注意: 并不是内嵌入系统浏览器, 而是调用并跳转过去.
      */
@@ -108,6 +110,22 @@ public class FirstActivity extends AppCompatActivity {
                 //安卓系统内置的动作常量
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("http://www.baidu.com"));
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * 隐式intent3.
+     * 加载第六个button,事件中: 调用系统的拨打电话.
+     */
+    private void loadButton6() {
+        Button button6 = findViewById(R.id.button_6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:10086"));
                 startActivity(intent);
             }
         });
