@@ -8,9 +8,9 @@
     wrap_content: 当前高度正好能包含里面的内容就行.
     -->
     <Button
-        android:id="@+id/button_2"
+        android:id="@+id/button_8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button 2"
+        android:text="Button 8"
         />
 </LinearLayout>

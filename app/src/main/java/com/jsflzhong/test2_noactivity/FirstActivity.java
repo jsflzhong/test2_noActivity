@@ -1,11 +1,13 @@
 package com.jsflzhong.test2_noactivity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,8 +16,11 @@ import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
 
+    private static final String TAG = "FirstActivity";
+
     /**
      * 创建主活动
+     *
      * @param savedInstanceState savedInstanceState
      */
     @Override
@@ -34,6 +39,7 @@ public class FirstActivity extends AppCompatActivity {
         loadButton4();
         loadButton5();
         loadButton6();
+        loadButton7();
     }
 
     /**
@@ -48,6 +54,9 @@ public class FirstActivity extends AppCompatActivity {
                 //新建一个intent,用于在点击第二个button时,打开第二个活动.
                 //而第二个活动中又调用了自定义的第二个layout,所以UI上会出来第二个布局.
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                //传递数据给secondActivity.
+                String data = "testValue";
+                intent.putExtra("key", data);
                 //执行上面的intent, 调用内置API.
                 startActivity(intent);
             }
@@ -129,6 +138,43 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    /**
+     * 在上个活动中(本活动),获得从下个活动(SecondActivity.class)传回来的数据.
+     * 加载第七个button,事件中:调用secondActivity,并调用回调API.
+     */
+    private void loadButton7() {
+        View button7 = findViewById(R.id.button_7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                //调用回调API, 参数二是个唯一值.
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    /**
+     * 回调函数.
+     * 接收从下个活动中(SecondActivity.class), 在那边调用finish()销毁那个活动后, 传回来的数据.
+     *
+     * @param requestCode 在启动活动时传入的请求码.
+     * @param resultCode  在返回数据时传入的处理结果.
+     * @param data        携带返回数据的intent.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    String returnValue = data.getStringExtra("returnKey");
+                    Log.d(TAG, "@@@returnValue:" + returnValue);
+                }
+                break;
+            default:
+        }
     }
 
     /**
