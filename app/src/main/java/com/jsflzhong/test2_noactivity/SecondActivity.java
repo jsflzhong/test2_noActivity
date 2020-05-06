@@ -19,7 +19,7 @@ public class SecondActivity extends AppCompatActivity {
 
         //获取intent
         Intent intent = getIntent();
-        //从intent中, 拿出来从上个活动传过来的数据.
+        //从intent中, 拿出来从上个活动传过来的数据.(FirstActivity中的loadButton2())
         String valueFromIntent = intent.getStringExtra("key");
         Log.d(TAG, "@@@valueFromIntent:" + valueFromIntent);
 
