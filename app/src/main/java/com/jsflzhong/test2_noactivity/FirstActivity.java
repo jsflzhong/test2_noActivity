@@ -17,26 +17,16 @@ import android.widget.Toast;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BasicActivity {
 
     private static final String TAG = "FirstActivity";
 
     /**
-     * 创建主活动
-     * 在第一次被创建时会执行. 执行顺序:1
-     *
+     * 在本活动被关闭时,会调用下面的onSaveInstanceState(),会存储一个值, 这里可以在再重启时拿到.
      * @param savedInstanceState savedInstanceState
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //给当前的活动加载一个布局,通过API:setContentView(setContentView)
-        //参数是布局的id, 该id可以通过R.layout.first_layout获得.
-        setContentView(R.layout.first_layout);
-        Log.d(TAG, "@@@[onCreate]");
-        loadButton();
-
-        //在本活动被关闭时,会调用下面的onSaveInstanceState(),会存储一个值, 这里可以在再重启时拿到.
+    public void getSavedInstanceState(Bundle savedInstanceState) {
         if(savedInstanceState != null) {
             String tempData = savedInstanceState.getString("tempKey");
             //这里可以做很多操作,例如把这个值再写回到指定的文本框里,等.
@@ -44,7 +34,16 @@ public class FirstActivity extends AppCompatActivity {
         }
     }
 
-    private void loadButton() {
+    /**
+     * 绑定指定的layout.xml
+     */
+    @Override
+    public void setContentView() {
+        setContentView(R.layout.first_layout);
+    }
+
+    @Override
+    public void loadButton() {
         loadButton1();
         loadButton2();
         loadButton3();
@@ -154,7 +153,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     /**
-     * 隐式intent3.
+     * 隐式intent4.
      * 加载第六个button,事件中: 调用系统的拨打电话.
      */
     private void loadButton6() {
@@ -265,72 +264,6 @@ public class FirstActivity extends AppCompatActivity {
             default:
         }
         return true;
-    }
-
-    /**
-     * 在第一次被创建时会执行. 执行顺序:2
-     *
-     * 当按下back键返回MainActivity时也会被调用.(由于之前MainActivity已经进入了停止状态，所以onRestart() 方法会得到执行)
-     */
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "@@@[onStart]");
-    }
-
-    /**
-     * 在第一次被创建时会执行. 执行顺序:3
-     *
-     * 当按下back键返回MainActivity时也会被调用.
-     */
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "@@@[onResume]");
-    }
-
-    /**
-     * 当按下back键返回MainActivity时会被调用.
-     */
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "@@@[onRestart]");
-    }
-
-    /**
-     * 当跳转到其他activity时,本activity中的该方法被执行.
-     * 由于NormalActivity已经把MainActivity完全遮挡住，因此onPause() 和onStop() 方法都会得到执行.
-     *
-     * 但是, 当跳转到DialogActivity时,由于它并没有完全遮挡住本MainActivity, 此时MainActivity只是进入了暂停状态，
-     *  并没有进入停止状态,所以,只有本onPause会被调用,而onStop不会被调用.
-     *
-     *  在MainActivity按下Back键退出程序时,也会被调用.
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "@@@[onPause]");
-    }
-
-    /**
-     * 当跳转到其他activity时,本activity中的该方法被执行.
-     *
-     * 在MainActivity按下Back键退出程序时,也会被调用.
-     */
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "@@@[onStop]");
-    }
-
-    /**
-     * 在MainActivity按下Back键退出程序时,会被调用.
-     */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "@@@[onDestroy]");
     }
 
     /**

@@ -16,16 +16,15 @@
         <!-- 注册活动(IDE自动生成外层),指定目标java类; 并配置主活动(固定格式) -->
         <activity
             android:name=".FirstActivity"
-            android:label="This is FirstActivity">
+            android:label="This is FirstActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity">
             <intent-filter>
-
                 <!-- 表示:当前activity活动可以响应"com.example.activitytest.ACTION_START"这个action. -->
                 <!-- 注意: 字符串需要与activity中的new Intent中的字符串相匹配 -->
                 <!-- 该action,是被firstActivity中调用的,即,在firstActivity中点击按钮时,会跳转到本secondActivity的layout中 -->

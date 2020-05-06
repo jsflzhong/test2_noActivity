@@ -11,6 +11,13 @@
         android:id="@+id/button_8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button 8"
+        android:text="Button 8 intent_onActivityResult"
+        />
+
+    <Button
+        android:id="@+id/button_11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button 11 exist program"
         />
 </LinearLayout>

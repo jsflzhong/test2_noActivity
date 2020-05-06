@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.jsflzhong.test2_noactivity.common.ActivityCollector;
+
 public class SecondActivity extends AppCompatActivity {
 
     private static final String TAG = "SecondActivity";
@@ -17,17 +19,21 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_layout);
 
+        getIntentFromLastActivity();
+        loadButton();
+    }
+
+    private void getIntentFromLastActivity() {
         //获取intent
         Intent intent = getIntent();
         //从intent中, 拿出来从上个活动传过来的数据.(FirstActivity中的loadButton2())
         String valueFromIntent = intent.getStringExtra("key");
         Log.d(TAG, "@@@valueFromIntent:" + valueFromIntent);
-
-        loadButton();
     }
 
     private void loadButton() {
         loadButton8();
+        loadButton11();
     }
 
     /**
@@ -49,6 +55,20 @@ public class SecondActivity extends AppCompatActivity {
                 //向上个活动传递数据
                 setResult(RESULT_OK, intent);
                 finish();
+            }
+        });
+    }
+
+    /**
+     * 加载第11个button,事件中: 调用自定义的工具方法,结束所有activity,从而退出程序.
+     *
+     */
+    private void loadButton11() {
+        Button button11 = findViewById(R.id.button_11);
+        button11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityCollector.finishAll();
             }
         });
     }
