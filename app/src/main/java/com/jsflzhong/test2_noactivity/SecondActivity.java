@@ -27,7 +27,7 @@ public class SecondActivity extends BasicActivity {
     }
 
     @Override
-    public void loadButton() {
+    public void loadView() {
         loadButton8();
         loadButton11();
     }

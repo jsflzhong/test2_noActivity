@@ -3,7 +3,6 @@ package com.jsflzhong.test2_noactivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jsflzhong.test2_noactivity.common.ActivityCollector;
@@ -26,7 +25,7 @@ public abstract class BasicActivity extends AppCompatActivity {
         //用自定义集合来管理所有活动
         ActivityCollector.addActivity(this);
 
-        loadButton();
+        loadView();
         getSavedInstanceState(savedInstanceState);
         getIntentFromLastActivity();
     }
@@ -39,7 +38,7 @@ public abstract class BasicActivity extends AppCompatActivity {
         ActivityCollector.removeActivity(this);
     }
 
-    public void loadButton() {
+    public void loadView() {
         Log.d(TAG,"@@@[loadButton] in parent");
     }
 

@@ -48,7 +48,7 @@ public class FirstActivity extends BasicActivity {
     }
 
     @Override
-    public void loadButton() {
+    public void loadView() {
         loadButton1();
         loadButton2();
         loadButton3();
