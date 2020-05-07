@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+    android:gravity: 文字对齐方式.
+    -->
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#00ff00"
+        android:text="This is TextView" />
+
+    <!--
+    android:textAllCaps:取消文字自动转大写的模式.
+    -->
+    <Button
+        android:id="@+id/button_13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button13 in UI activity"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

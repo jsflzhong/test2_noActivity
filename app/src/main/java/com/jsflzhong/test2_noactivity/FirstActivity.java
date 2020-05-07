@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
+import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
 
 public class FirstActivity extends BasicActivity {
 
@@ -57,6 +58,7 @@ public class FirstActivity extends BasicActivity {
         loadButton7();
         loadButton9();
         loadButton10();
+        loadButton12();
     }
 
     /**
@@ -232,6 +234,20 @@ public class FirstActivity extends BasicActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FirstActivity.this, DialogActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * 加载第12个button,事件中:打开UIActivity1
+     */
+    private void loadButton12() {
+        View button12 = findViewById(R.id.button_12);
+        button12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FirstActivity.this, UIActivity_1.class);
                 startActivity(intent);
             }
         });

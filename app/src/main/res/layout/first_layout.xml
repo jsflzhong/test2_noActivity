@@ -47,7 +47,7 @@
         android:id="@+id/button_7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button 7 intent_startActivityForResult"
+        android:text="Button 7 intent_startActivityForResuTextViewlt"
         />
     <Button
         android:id="@+id/button_9"
@@ -60,5 +60,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button 10 start DialogActivity"
+        />
+    <Button
+        android:id="@+id/button_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button 12 start UIActivity_1"
         />
 </LinearLayout>
