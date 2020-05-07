@@ -1,70 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
-    <!--
-    id: 给当前元素定义的唯一标识符.
-    wrap_content: 当前高度正好能包含里面的内容就行.
-    -->
-    <Button
-        android:id="@+id/button_1"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 1 Toast"
-        />
-    <Button
-        android:id="@+id/button_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 2 intent"
-        />
-    <Button
-        android:id="@+id/button_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 3 intent_implicit"
-        />
-    <Button
-        android:id="@+id/button_4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 4 intent_category"
-        />
-    <Button
-        android:id="@+id/button_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 5 intent_browser"
-        />
-    <Button
-        android:id="@+id/button_6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 6 intent_dail"
-        />
-    <Button
-        android:id="@+id/button_7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 7 intent_startActivityForResuTextViewlt"
-        />
-    <Button
-        android:id="@+id/button_9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 9 start NormalActivity"
-        />
-    <Button
-        android:id="@+id/button_10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 10 start DialogActivity"
-        />
-    <Button
-        android:id="@+id/button_12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button 12 start UIActivity_1"
-        />
-</LinearLayout>
+        android:layout_height="match_parent">
+
+        <!--
+        id: 给当前元素定义的唯一标识符.
+        wrap_content: 当前高度正好能包含里面的内容就行.
+        -->
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 1 Toast"
+            />
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 2 intent"
+            />
+        <Button
+            android:id="@+id/button_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 3 intent_implicit"
+            />
+        <Button
+            android:id="@+id/button_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 4 intent_category"
+            />
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 5 intent_browser"
+            />
+        <Button
+            android:id="@+id/button_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 6 intent_dail"
+            />
+        <Button
+            android:id="@+id/button_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 7 intent_startActivityForResuTextViewlt"
+            />
+        <Button
+            android:id="@+id/button_9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 9 start NormalActivity"
+            />
+        <Button
+            android:id="@+id/button_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 10 start DialogActivity"
+            />
+        <Button
+            android:id="@+id/button_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 12 start UIActivity_1"
+            />
+        <Button
+            android:id="@+id/button_22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 22 start LayoutActivity"
+            />
+    </LinearLayout>
+</ScrollView>

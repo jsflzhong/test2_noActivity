@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+水平排列布局.
+由于目前LinearLayout的排列方向是horizontal，因此我们只能指定垂直方向上的排列方向.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+    另一个重要属性——android:layout_weight 。
+    这个属性允许我们使用比例的方式来指定控件的大小，它在手机屏幕的适配性方面可以起到非常重要的作用.
+
+    UI: 水平在一行上放置一个输入框和一个按钮,每个各站一半宽度的屏幕.
+    注意: 把EditText和Button的宽度都指定成了0dp，这样文本编辑框和按钮还能显示出来吗？
+        不用担心，由于我们使用了android:layout_weight 属性，
+        此时控件的宽度就不应该再由android:layout_width 来决定，这里指定成0dp是一种比较规范的写法.
+    平分宽度的原理:
+        1 + 1.
+
+    -->
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Input something"
+        />
+    <!--与上面的输入框各占一半-->
+    <!--<Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="send"
+        />-->
+    <!--
+        Button的宽度按照里面的文字宽度计算, 这一行剩余的宽度,给文本输入框.
+        使用这种方式编写的界面，不仅在各种屏幕的自适配方面会非常好，而且看起来也更加舒服-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send"
+        />
+
+</LinearLayout>

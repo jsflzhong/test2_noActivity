@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.UIActivity_1"></activity>
-        <!-- 指定让DialogActivity使用"对话框"式的主题 -->
+        <activity android:name=".layout.LinearLayoutActivity2"></activity>
+        <activity android:name=".layout.LinearLayoutActivity1" />
+        <activity android:name=".ui.UIActivity_1" /> <!-- 指定让DialogActivity使用"对话框"式的主题 -->
         <activity
             android:name=".lifeCycle.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />

@@ -2,7 +2,6 @@ package com.jsflzhong.test2_noactivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.jsflzhong.test2_noactivity.layout.LinearLayoutActivity1;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
@@ -59,6 +59,7 @@ public class FirstActivity extends BasicActivity {
         loadButton9();
         loadButton10();
         loadButton12();
+        loadButton22();
     }
 
     /**
@@ -248,6 +249,20 @@ public class FirstActivity extends BasicActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FirstActivity.this, UIActivity_1.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * 加载第22个button,事件中:打开LayoutActivity
+     */
+    private void loadButton22() {
+        View button22 = findViewById(R.id.button_22);
+        button22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FirstActivity.this, LinearLayoutActivity1.class);
                 startActivity(intent);
             }
         });

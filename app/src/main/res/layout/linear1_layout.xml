@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+水平排列布局.
+由于目前LinearLayout的排列方向是horizontal，因此我们只能指定垂直方向上的排列方向.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--顶端对齐-->
+    <Button
+        android:id="@+id/button_19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:text="Button 19" />
+    <!--中央垂直对齐-->
+    <Button
+        android:id="@+id/button_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Button 20" />
+    <!--底端对齐-->
+    <Button
+        android:id="@+id/button_21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Button 21" />
+
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Input something"
+        />
+</LinearLayout>
