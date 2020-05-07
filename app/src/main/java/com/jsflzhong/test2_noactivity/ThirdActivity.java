@@ -1,14 +1,10 @@
 package com.jsflzhong.test2_noactivity;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-
-public class ThirdActivity extends AppCompatActivity {
+public class ThirdActivity extends BasicActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void setContentView() {
         setContentView(R.layout.third_layout);
     }
 }

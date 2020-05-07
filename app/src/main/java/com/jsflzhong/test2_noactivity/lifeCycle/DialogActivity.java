@@ -1,16 +1,13 @@
 package com.jsflzhong.test2_noactivity.lifeCycle;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-
+import com.jsflzhong.test2_noactivity.BasicActivity;
 import com.jsflzhong.test2_noactivity.R;
 
-public class DialogActivity extends AppCompatActivity {
+public class DialogActivity extends BasicActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void setContentView() {
         setContentView(R.layout.dialog_layout);
     }
 }

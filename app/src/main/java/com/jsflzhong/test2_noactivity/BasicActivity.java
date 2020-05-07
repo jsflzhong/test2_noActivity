@@ -28,6 +28,7 @@ public abstract class BasicActivity extends AppCompatActivity {
 
         loadButton();
         getSavedInstanceState(savedInstanceState);
+        getIntentFromLastActivity();
     }
 
     @Override
@@ -38,11 +39,22 @@ public abstract class BasicActivity extends AppCompatActivity {
         ActivityCollector.removeActivity(this);
     }
 
-    public abstract void loadButton();
+    public void loadButton() {
+        Log.d(TAG,"@@@[loadButton] in parent");
+    }
 
-    public abstract void getSavedInstanceState(Bundle savedInstanceState);
+    public void getSavedInstanceState(Bundle savedInstanceState) {
+        Log.d(TAG, "@@@[getSavedInstanceState] in parent");
+    }
 
+    /**
+     * 需要子类指定对应的layout文件
+     */
     public abstract void setContentView();
+
+    public void getIntentFromLastActivity() {
+        Log.d(TAG, "@@@[]getIntentFromLastActivity in parent");
+    }
 
     /**
      * 在第一次被创建时会执行. 执行顺序:2

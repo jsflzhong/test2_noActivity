@@ -42,6 +42,10 @@ public class FirstActivity extends BasicActivity {
         setContentView(R.layout.first_layout);
     }
 
+    public void getIntentFromLastActivity() {
+        Log.d(TAG,"@@@[getIntentFromLastActivity]");
+    }
+
     @Override
     public void loadButton() {
         loadButton1();
