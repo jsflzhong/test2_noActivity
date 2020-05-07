@@ -1,79 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<!--滚动条在最外层-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
-    <!--
-    UI:纯文本显示
-    android:gravity: 文字对齐方式.
-    -->
-    <TextView
-        android:id="@+id/text_view"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:textColor="#00ff00"
-        android:text="This is TextView" />
+        android:layout_height="match_parent">
 
-    <!--
-    UI:按钮
-    android:textAllCaps:取消文字自动转大写的模式.
-    -->
-    <Button
-        android:id="@+id/button_13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button13_get string in editText."
-        android:textAllCaps="false"
-        />
+        <!--
+        UI:纯文本显示
+        android:gravity: 文字对齐方式.
+        -->
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textColor="#00ff00"
+            android:text="This is TextView" />
 
-    <!--
-    UI:文本编辑框
-    android:maxLines: 最高两行文字,否则会被过多的文字无限拉高.
-    -->
-    <EditText
-        android:id="@+id/edit_text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Default value..."
-        android:maxLines="2"
-        />
+        <!--
+        UI:按钮
+        android:textAllCaps:取消文字自动转大写的模式.
+        -->
+        <Button
+            android:id="@+id/button_13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button13_get string in editText."
+            android:textAllCaps="false"
+            />
 
-    <!--
-    UI:图片显示区
-    android:maxLines: 最高两行文字,否则会被过多的文字无限拉高.
-    -->
-    <ImageView
-        android:id="@+id/image_view1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_2"
-        />
-    <Button
-        android:id="@+id/button_14"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="button14_update image"
-        android:textAllCaps="false"
-        />
+        <!--
+        UI:文本编辑框
+        android:maxLines: 最高两行文字,否则会被过多的文字无限拉高.
+        -->
+        <EditText
+            android:id="@+id/edit_text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Default value..."
+            android:maxLines="2"
+            />
 
-    <!--
-    UI:进度条
+        <!--
+        UI:图片显示区
+        android:maxLines: 最高两行文字,否则会被过多的文字无限拉高.
+        -->
+        <ImageView
+            android:id="@+id/image_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_2"
+            />
+        <Button
+            android:id="@+id/button_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="button14_update image"
+            android:textAllCaps="false"
+            />
 
-    -->
-    <ProgressBar
-        android:id="@+id/progress_bar1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:id="@+id/button_15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="button15_change progress bar"
-        />
+        <!--
+        UI:进度条
+        默认是圆形的, 但也可以通过添加style来修改进度条的样式.
+
+        -->
+        <!--圆形进度条-->
+        <ProgressBar
+            android:id="@+id/progress_bar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:id="@+id/button_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="button15_change progress bar"
+            />
+
+        <ProgressBar
+            android:id="@+id/progress_bar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            />
+        <Button
+            android:id="@+id/button_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="button16_change progress bar of long shaped "
+            />
+
+        <Button
+            android:id="@+id/button_17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="button17_trigger AlertDialog "
+            />
+
+        <Button
+            android:id="@+id/button_18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="button18_trigger ProgressDialog "
+            />
 
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
