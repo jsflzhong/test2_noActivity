@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.jsflzhong.test2_noactivity.layout.LinearLayoutActivity1;
+import com.jsflzhong.test2_noactivity.layout.ListViewActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
@@ -71,6 +72,7 @@ public class FirstActivity extends BasicActivity {
         loadButton10();
         loadButton12();
         loadButton22();
+        loadButton23();
     }
 
     /**
@@ -276,6 +278,17 @@ public class FirstActivity extends BasicActivity {
                 Intent intent = new Intent(FirstActivity.this, LinearLayoutActivity1.class);
                 startActivity(intent);
             }
+        });
+    }
+
+    /**
+     * 加载第23个button,事件中:打开listView Activity
+     */
+    private void loadButton23() {
+        View button23 = findViewById(R.id.button_23);
+        button23.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, ListViewActivity.class);
+            startActivity(intent);
         });
     }
 

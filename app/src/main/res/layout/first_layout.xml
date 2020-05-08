@@ -81,5 +81,11 @@
             android:layout_height="wrap_content"
             android:text="Button 22 start LayoutActivity"
             />
+        <Button
+            android:id="@+id/button_23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 23 start listView Layout"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </ScrollView>

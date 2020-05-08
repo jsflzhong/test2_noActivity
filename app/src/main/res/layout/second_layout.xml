@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <!--引用自定义控件
-        java代码,代码中引用了真正的title.xml这个layout文件.
+        引用的是java代码,代码中引用了真正的title.xml这个layout文件.
     -->
     <com.jsflzhong.test2_noactivity.layout.selfDefineLayout.TitleLayout
         android:layout_width="match_parent"
