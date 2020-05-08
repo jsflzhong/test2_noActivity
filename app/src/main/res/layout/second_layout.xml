@@ -3,6 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--引用自定义控件
+        java代码,代码中引用了真正的title.xml这个layout文件.
+    -->
+    <com.jsflzhong.test2_noactivity.layout.selfDefineLayout.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <!--
     id: 给当前元素定义的唯一标识符.
     wrap_content: 当前高度正好能包含里面的内容就行.

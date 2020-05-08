@@ -115,4 +115,5 @@
     使用include即可.注意要在LinearLayout节点层级的下层.
     例子见: title.xml和first_layout.xml
 
-
+6.自定义控件.
+    TitleLayout.java
