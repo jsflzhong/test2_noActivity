@@ -112,11 +112,25 @@
             }
 
 5.在布局中引用其他布局.
-    使用include即可.注意要在LinearLayout节点层级的下层.
-    例子见: title.xml和first_layout.xml
+    有两种方式:
+    5.1.简化方式:
+        使用include即可.注意要在LinearLayout节点层级的下层.
+        例子见: title.xml和first_layout.xml
+    5.2.完全方式:
+        使用java代码,初始化一个Adapter,然后拿到当前布局中的listView元素, 最后调用istView.setAdapter(XXAdapter);即可完成.
+        其中的Adapter,可以用内置的,也可以是自定义的,自定义的可以绑定一个自定义的布局.
+        例子建: ListViewActivity2(父活动), listview2_layout.xml(父布局), FruitAdapter(自定义的Adapter), fruit_item.xml(子布局)
+
 
 6.自定义控件.
     TitleLayout.java
 
 7.ListView
     滚动下滑数据菜单.
+
+
+N.Trouble shooting.
+
+    1.R.id...找不到.
+        File-->sync with file system.
+
