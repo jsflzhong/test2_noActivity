@@ -1,6 +1,7 @@
 package com.jsflzhong.test2_noactivity.layout;
 
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.jsflzhong.test2_noactivity.BasicActivity;
 import com.jsflzhong.test2_noactivity.R;
@@ -23,14 +24,21 @@ public class ListViewActivity2 extends BasicActivity {
 
     @Override
     public void loadView() {
+        List<Fruit> fruitList = initFruits();
         //创建要传给父布局的数据.
         //传入上下文, 子项布局(fruit_item.xml),和数据集.
         //子项布局这次与ListViewActivity中的不同,这次使用自定义的布局fruit_item.xml, 通过构造函数传给自定义的Adapter.
-        FruitAdapter fruitAdapter = new FruitAdapter(this, R.layout.fruit_item, initFruits());
+        FruitAdapter fruitAdapter = new FruitAdapter(this, R.layout.fruit_item, fruitList);
         //拿父布局中的listView.
         ListView listView = findViewById(R.id.list_view2);
         //给父布局放入Adapter数据.
         listView.setAdapter(fruitAdapter);
+        //给listView注册点击事件.
+        listView.setOnItemClickListener((parent,view,position,id) -> {
+            //可以通过position 参数判断出用户点击的是哪一个子项，然后获取到相应的水果.
+            Fruit fruit = fruitList.get(position);
+            Toast.makeText(this, fruit.getName(),Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
