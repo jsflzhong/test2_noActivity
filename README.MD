@@ -108,9 +108,11 @@
         这样的话就可以轻松实现平分布局甚至是任意比例分割布局的效果了。
         打开app/build.gradle文件，在dependencies 闭包中添加如下内容：
             dependencies {
-            compile fileTree(dir: 'libs', include: ['*.jar'])
-            compile 'com.android.support:appcompat-v7:24.2.1'
-            compile 'com.android.support:percent:24.2.1'
-            testCompile 'junit:junit:4.12'
+            implementation 'androidx.percentlayout:percentlayout:1.0.0'
             }
+
+5.在布局中引用其他布局.
+    使用include即可.注意要在LinearLayout节点层级的下层.
+    例子见: title.xml和first_layout.xml
+
 

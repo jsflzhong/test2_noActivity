@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include layout="@layout/title"/>
+
         <!--
         id: 给当前元素定义的唯一标识符.
         wrap_content: 当前高度正好能包含里面的内容就行.

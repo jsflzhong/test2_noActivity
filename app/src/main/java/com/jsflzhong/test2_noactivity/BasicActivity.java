@@ -28,6 +28,15 @@ public abstract class BasicActivity extends AppCompatActivity {
         loadView();
         getSavedInstanceState(savedInstanceState);
         getIntentFromLastActivity();
+        hideSupportActionBar();
+
+    }
+
+    /**
+     * 隐藏布局中自带的标题栏
+     */
+    public void hideSupportActionBar() {
+
     }
 
     @Override
@@ -42,6 +51,10 @@ public abstract class BasicActivity extends AppCompatActivity {
         Log.d(TAG,"@@@[loadButton] in parent");
     }
 
+    /**
+     * 在本活动被关闭时,会调用下面的onSaveInstanceState(),会存储一个值, 这里可以在再重启时拿到.
+     * @param savedInstanceState savedInstanceState
+     */
     public void getSavedInstanceState(Bundle savedInstanceState) {
         Log.d(TAG, "@@@[getSavedInstanceState] in parent");
     }
@@ -51,6 +64,9 @@ public abstract class BasicActivity extends AppCompatActivity {
      */
     public abstract void setContentView();
 
+    /**
+     * 从intent中, 拿出来从上个活动传过来的数据
+     */
     public void getIntentFromLastActivity() {
         Log.d(TAG, "@@@[]getIntentFromLastActivity in parent");
     }

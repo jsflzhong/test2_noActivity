@@ -2,9 +2,12 @@ package com.jsflzhong.test2_noactivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -17,6 +20,8 @@ import com.jsflzhong.test2_noactivity.layout.LinearLayoutActivity1;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
+
+import java.util.Optional;
 
 public class FirstActivity extends BasicActivity {
 
@@ -45,6 +50,12 @@ public class FirstActivity extends BasicActivity {
 
     public void getIntentFromLastActivity() {
         Log.d(TAG,"@@@[getIntentFromLastActivity]");
+    }
+
+    @Override
+    public void hideSupportActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        Optional.ofNullable(actionBar).ifPresent(ActionBar::hide);
     }
 
     @Override
