@@ -21,6 +21,7 @@ import com.jsflzhong.test2_noactivity.layout.ListViewActivity;
 import com.jsflzhong.test2_noactivity.layout.ListViewActivity2;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewLinearRollingActivity;
+import com.jsflzhong.test2_noactivity.layout.RecyclerViewStaggeredGridActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
@@ -80,6 +81,7 @@ public class FirstActivity extends BasicActivity {
         loadButton24();
         loadButton25();
         loadButton26();
+        loadButton27();
     }
 
     /**
@@ -328,6 +330,17 @@ public class FirstActivity extends BasicActivity {
         View button26 = findViewById(R.id.button_26);
         button26.setOnClickListener(v -> {
             Intent intent = new Intent(FirstActivity.this, RecyclerViewLinearRollingActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    /**
+     * 加载第27个button,事件中:打开 RecyclerViewStaggeredGridActivity.
+     */
+    private void loadButton27() {
+        View button27 = findViewById(R.id.button_27);
+        button27.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, RecyclerViewStaggeredGridActivity.class);
             startActivity(intent);
         });
     }

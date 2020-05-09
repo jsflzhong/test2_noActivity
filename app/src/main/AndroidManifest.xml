@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".layout.RecyclerViewStaggeredGridActivity"></activity>
         <activity android:name=".layout.RecyclerViewLinearRollingActivity" />
-        <activity android:name=".layout.RecyclerViewActivity"></activity>
+        <activity android:name=".layout.RecyclerViewActivity" />
         <activity android:name=".layout.ListViewActivity2" />
         <activity android:name=".layout.ListViewActivity" />
         <activity android:name=".layout.RelativeLayoutActivity2" />

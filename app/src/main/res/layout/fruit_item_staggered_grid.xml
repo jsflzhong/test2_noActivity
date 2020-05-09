@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+将LinearLayout的宽度由100dp改成了match_parent ，因为瀑布流布局的宽度应该是根据布局的列数来自动适配的，而不是一个固定值.
+
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <!--
+        子项布局,用于实现瀑布流布局.
+        默认垂直排列, 可以在代码中实现横向滚动的效果.
+        -->
+
+    <!--
+        将ImageView和TextView都设置成了在布局中水平居中，
+        并且使用layout_marginTop 属性让文字和图片之间保持一些距离。
+    -->
+    <ImageView
+        android:id="@+id/fruit_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <!--
+    将TextView的对齐属性改成了居左对齐，因为待会我们会将文字的长度变长，
+    如果还是居中显示就会感觉怪怪的.
+    -->
+    <TextView
+        android:id="@+id/fruit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp" />
+</LinearLayout>

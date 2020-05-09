@@ -105,5 +105,11 @@
             android:layout_height="wrap_content"
             android:text="Button 26 start RecyclerViewLinearRollingActivity"
             android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/button_27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 27 start RecyclerViewStaggeredGridActivity"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </ScrollView>
