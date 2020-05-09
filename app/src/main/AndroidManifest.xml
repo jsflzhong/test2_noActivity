@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".layout.ListViewActivity2"></activity>
+        <activity android:name=".layout.RecyclerViewActivity"></activity>
+        <activity android:name=".layout.ListViewActivity2" />
         <activity android:name=".layout.ListViewActivity" />
         <activity android:name=".layout.RelativeLayoutActivity2" />
         <activity android:name=".layout.RelativeLayoutActivity1" />

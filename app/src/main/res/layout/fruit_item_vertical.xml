@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    固定布局的宽度的方式:
+        这里将宽度指定为固定值是因为每种水果的文字长度不一致，
+        如果用wrap_content 的话，RecyclerView的子项就会有长有短，非常不美观；
+        而如果用match_parent 的话，就会导致宽度过长，一个子项占满整个屏幕。
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content">
+
+    <!--
+        子项布局,
+        默认垂直排列, 可以在代码中实现横向滚动的效果.
+        -->
+
+    <!--
+        将ImageView和TextView都设置成了在布局中水平居中，
+        并且使用layout_marginTop 属性让文字和图片之间保持一些距离。
+    -->
+    <ImageView
+        android:id="@+id/fruit_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/fruit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
+</LinearLayout>

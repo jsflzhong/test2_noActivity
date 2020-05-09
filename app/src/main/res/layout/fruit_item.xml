@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!--子项布局-->
+    <!--
+        子项布局,
+        默认水平排列, 可以在代码中实现纵向滚动的效果.
+        -->
 
     <ImageView
         android:id="@+id/fruit_image"

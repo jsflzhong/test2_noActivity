@@ -4,7 +4,10 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--父布局-->
+    <!--
+        这是一个父布局.
+        子布局是: fruit_item, 在ListViewActivity2.java中通过自定义的Adapter导入.
+    -->
 
     <com.jsflzhong.test2_noactivity.layout.selfDefineLayout.TitleLayout
         android:layout_width="match_parent"

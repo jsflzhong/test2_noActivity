@@ -93,5 +93,11 @@
             android:layout_height="wrap_content"
             android:text="Button 24 start listView2 Layout"
             android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/button_25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 25 start RecyclerViewActivity Layout"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </ScrollView>
