@@ -64,7 +64,7 @@ public class FruitAdapter2 extends RecyclerView.Adapter<FruitAdapter2.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //拿到子项布局
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fruit_item, parent, false);
+                .inflate(R.layout.fruit_item_vertical, parent, false);
         //把子项布局传入自定义的ViewHolder.
         return new ViewHolder(view);
     }

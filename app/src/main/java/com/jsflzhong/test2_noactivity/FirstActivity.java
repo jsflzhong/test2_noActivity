@@ -20,6 +20,7 @@ import com.jsflzhong.test2_noactivity.layout.LinearLayoutActivity1;
 import com.jsflzhong.test2_noactivity.layout.ListViewActivity;
 import com.jsflzhong.test2_noactivity.layout.ListViewActivity2;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewActivity;
+import com.jsflzhong.test2_noactivity.layout.RecyclerViewLinearRollingActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
@@ -32,14 +33,15 @@ public class FirstActivity extends BasicActivity {
 
     /**
      * 在本活动被关闭时,会调用下面的onSaveInstanceState(),会存储一个值, 这里可以在再重启时拿到.
+     *
      * @param savedInstanceState savedInstanceState
      */
     @Override
     public void getSavedInstanceState(Bundle savedInstanceState) {
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             String tempData = savedInstanceState.getString("tempKey");
             //这里可以做很多操作,例如把这个值再写回到指定的文本框里,等.
-            Log.d(TAG,"@@@[onCreate] tempData is:" + tempData);
+            Log.d(TAG, "@@@[onCreate] tempData is:" + tempData);
         }
     }
 
@@ -52,7 +54,7 @@ public class FirstActivity extends BasicActivity {
     }
 
     public void getIntentFromLastActivity() {
-        Log.d(TAG,"@@@[getIntentFromLastActivity]");
+        Log.d(TAG, "@@@[getIntentFromLastActivity]");
     }
 
     @Override
@@ -77,6 +79,7 @@ public class FirstActivity extends BasicActivity {
         loadButton23();
         loadButton24();
         loadButton25();
+        loadButton26();
     }
 
     /**
@@ -319,6 +322,17 @@ public class FirstActivity extends BasicActivity {
     }
 
     /**
+     * 加载第26个button,事件中:打开 RecyclerViewLinearRollingActivity.
+     */
+    private void loadButton26() {
+        View button26 = findViewById(R.id.button_26);
+        button26.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, RecyclerViewLinearRollingActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    /**
      * 创建菜单
      *
      * @param menu menu
@@ -354,7 +368,7 @@ public class FirstActivity extends BasicActivity {
     /**
      * 在本activity被销毁时, 会被调用.可用来保存页面上的临时数据.
      * 在onCreate()方法中,也有个Bundle类型的参数, 即, 在本活动被销毁后, 重新新建时,会调用onCreate(),就会在该方法中拿到该值, 到此形成一个闭环.
-     *
+     * <p>
      * 注意,也可以把该Bundle放入Intent对象中传递!
      *
      * @param outState outState
@@ -363,6 +377,6 @@ public class FirstActivity extends BasicActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         String tempData = "TempData on the UI";
-        outState.putString("tempKey",tempData);
+        outState.putString("tempKey", tempData);
     }
 }
