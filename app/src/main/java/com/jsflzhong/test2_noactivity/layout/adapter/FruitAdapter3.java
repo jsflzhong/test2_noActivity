@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +31,8 @@ public class FruitAdapter3 extends RecyclerView.Adapter<FruitAdapter3.ViewHolder
     static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView fruitImage;
         TextView fruitName;
+        //用来保存子项最外层布局的实例.
+        View fruitView;
 
         /**
          * 参数一般会传入子项布局.
@@ -40,6 +43,7 @@ public class FruitAdapter3 extends RecyclerView.Adapter<FruitAdapter3.ViewHolder
             super(view);
             fruitImage = view.findViewById(R.id.fruit_image);
             fruitName = view.findViewById(R.id.fruit_name);
+            fruitView = view;
         }
     }
 
@@ -66,7 +70,21 @@ public class FruitAdapter3 extends RecyclerView.Adapter<FruitAdapter3.ViewHolder
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fruit_item_staggered_grid, parent, false);
         //把子项布局传入自定义的ViewHolder.
-        return new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        //为图片注册点击事件. 当点击图片时触发.
+        viewHolder.fruitImage.setOnClickListener(v -> {
+            int position = viewHolder.getAdapterPosition();
+            Fruit fruit = mFruitList.get(position);
+            Toast.makeText(v.getContext(), "you clicked image" + fruit.getName(), Toast.LENGTH_SHORT).show();
+        });
+        //为子项布局注册点击事件
+        //点击菠萝的文字部分，由于TextView并没有注册点击事件，因此点击文字这个事件会被子项的最外层布局捕获到.
+        viewHolder.fruitView.setOnClickListener(v -> {
+            int position = viewHolder.getAdapterPosition();
+            Fruit fruit = mFruitList.get(position);
+            Toast.makeText(v.getContext(), "you clicked view" + fruit.getName(), Toast.LENGTH_SHORT).show();
+        });
+        return viewHolder;
     }
 
     /**

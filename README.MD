@@ -119,18 +119,67 @@
     5.2.完全方式:
         使用java代码,初始化一个Adapter,然后拿到当前布局中的listView元素, 最后调用istView.setAdapter(XXAdapter);即可完成.
         其中的Adapter,可以用内置的,也可以是自定义的,自定义的可以绑定一个自定义的布局.
-        例子建: ListViewActivity2(父活动), listview2_layout.xml(父布局), FruitAdapter(自定义的Adapter), fruit_item.xml(子布局)
+        例子见: ListViewActivity2(父活动), listview2_layout.xml(父布局), FruitAdapter(自定义的Adapter), fruit_item.xml(子布局)
 
 
 6.自定义控件.
     TitleLayout.java
 
-7.ListView
+7.自定义Adapter.
+    FruitAdapter.java
+
+8.ListView
     滚动下滑数据菜单.
+    优点: 经典.
+    缺点: 如果我们不使用一些技巧来提升它的运行效率，那么ListView的性能就会非常差。
+    还有，ListView的扩展性也不够好，它只能实现数据纵向滚动的效果，如果我们想实现横向滚动的话，ListView是做不到的。
+
+    例子见: ListViewActivity2(父活动), listview2_layout.xml(父布局), FruitAdapter(自定义的Adapter), fruit_item.xml(子布局)
+    注意:
+        关键是自定义的Adapter. 与下面的RecyclerView的Adapter不同.
+
+9.RecyclerView
+    它可以说是一个增强版的
+    ListView，不仅可以轻松实现和ListView同样的效果，还优化了ListView中存在的各种不足之处.
+    目前Android官方更加推荐使用RecyclerView，未来也会有更多的程序逐渐从ListView转向RecyclerView，
+
+    9.1.纵向滚动.
+        父活动:RecyclerViewActivity
+        父布局:recycler_view_layout.xml
+        Adapter:FruitAdapter2
+        子布局:fruit_item_vertical.xml
+
+    9.2.横向滚动:
+        父活动:RecyclerViewLinearRollingActivity
+        父布局:recycler_view_layout.xml
+        Adapter:FruitAdapter2
+        子布局:fruit_item_vertical
+
+    为什么ListView很难或者根本无法实现的效果在RecyclerView上这么轻松就能实现了呢？这主要
+    得益于RecyclerView出色的设计。ListView的布局排列是由自身去管理的，而RecyclerView则将
+    这个工作交给了"LayoutManager"，LayoutManager中制定了一套可扩展的布局排列接口，子类只要
+    按照接口的规范来实现，就能定制出各种不同排列方式的布局了。
+
+    除了LinearLayoutManager之外，RecyclerView还给我们提供了GridLayoutManager和
+    StaggeredGridLayoutManager这两种内置的布局排列方式。GridLayoutManager可以用于实现网格
+    布局，StaggeredGridLayoutManager可以用于实现瀑布流布局.
+
+    9.3.瀑布流布局:
+        Activity: RecyclerViewStaggeredGridActivity
+
+    9.4.瀑布流布局RecyclerView的点击事件.
+        RecyclerView并没有提供类似于setOnItemClickListener()
+        这样的注册监听器方法，而是需要我们自己给子项具体的View去注册点击事件，相比于ListView
+        来说，实现起来要复杂一些。
+
+
+
+
+
 
 
 N.Trouble shooting.
 
     1.R.id...找不到.
         File-->sync with file system.
-
+        还不行就重启IDE即可.
