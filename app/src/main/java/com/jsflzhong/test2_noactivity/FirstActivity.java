@@ -22,7 +22,7 @@ import com.jsflzhong.test2_noactivity.layout.NinePatchActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewLinearRollingActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewStaggeredGridActivity;
-import com.jsflzhong.test2_noactivity.layout.broadcast.BroadNetWorkActivity;
+import com.jsflzhong.test2_noactivity.layout.broadcast.receiver.BroadNetWorkActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;

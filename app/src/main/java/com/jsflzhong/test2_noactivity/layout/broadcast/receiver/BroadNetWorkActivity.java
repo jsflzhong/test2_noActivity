@@ -1,4 +1,4 @@
-package com.jsflzhong.test2_noactivity.layout.broadcast;
+package com.jsflzhong.test2_noactivity.layout.broadcast.receiver;
 
 
 import android.content.BroadcastReceiver;
