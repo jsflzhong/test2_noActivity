@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -24,6 +25,7 @@ import com.jsflzhong.test2_noactivity.layout.NinePatchActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewLinearRollingActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewStaggeredGridActivity;
+import com.jsflzhong.test2_noactivity.layout.broadcast.BroadcastMainActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
@@ -86,6 +88,7 @@ public class FirstActivity extends BasicActivity {
         loadButton27();
         loadButton28();
         loadButton29();
+        loadButton30();
     }
 
     /**
@@ -367,6 +370,17 @@ public class FirstActivity extends BasicActivity {
         View button29 = findViewById(R.id.button_29);
         button29.setOnClickListener(v -> {
             Intent intent = new Intent(FirstActivity.this, MsgActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    /**
+     * 加载第30个button,事件中:打开 RecyclerViewStaggeredGridActivity.
+     */
+    private void loadButton30() {
+        View button30 = findViewById(R.id.button_30);
+        button30.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, BroadcastMainActivity.class);
             startActivity(intent);
         });
     }
