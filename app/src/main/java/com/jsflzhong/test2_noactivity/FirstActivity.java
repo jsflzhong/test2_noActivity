@@ -2,13 +2,10 @@ package com.jsflzhong.test2_noactivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -25,7 +22,7 @@ import com.jsflzhong.test2_noactivity.layout.NinePatchActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewLinearRollingActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewStaggeredGridActivity;
-import com.jsflzhong.test2_noactivity.layout.broadcast.BroadcastMainActivity;
+import com.jsflzhong.test2_noactivity.layout.broadcast.BroadNetWorkActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
 import com.jsflzhong.test2_noactivity.ui.UIActivity_1;
@@ -380,7 +377,7 @@ public class FirstActivity extends BasicActivity {
     private void loadButton30() {
         View button30 = findViewById(R.id.button_30);
         button30.setOnClickListener(v -> {
-            Intent intent = new Intent(FirstActivity.this, BroadcastMainActivity.class);
+            Intent intent = new Intent(FirstActivity.this, BroadNetWorkActivity.class);
             startActivity(intent);
         });
     }
