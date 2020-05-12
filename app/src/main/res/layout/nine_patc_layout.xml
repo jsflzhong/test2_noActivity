@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    发送消息图标的布局.
+
+    把message_left.9.png当做背景图片,作为收消息的背景图.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/message_left"
+    >
+</LinearLayout>

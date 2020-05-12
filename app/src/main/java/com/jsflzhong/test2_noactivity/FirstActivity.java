@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.jsflzhong.test2_noactivity.layout.LinearLayoutActivity1;
 import com.jsflzhong.test2_noactivity.layout.ListViewActivity;
 import com.jsflzhong.test2_noactivity.layout.ListViewActivity2;
+import com.jsflzhong.test2_noactivity.layout.MsgActivity;
+import com.jsflzhong.test2_noactivity.layout.NinePatchActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewLinearRollingActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewStaggeredGridActivity;
@@ -82,6 +84,8 @@ public class FirstActivity extends BasicActivity {
         loadButton25();
         loadButton26();
         loadButton27();
+        loadButton28();
+        loadButton29();
     }
 
     /**
@@ -341,6 +345,28 @@ public class FirstActivity extends BasicActivity {
         View button27 = findViewById(R.id.button_27);
         button27.setOnClickListener(v -> {
             Intent intent = new Intent(FirstActivity.this, RecyclerViewStaggeredGridActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    /**
+     * 加载第28个button,事件中:打开 RecyclerViewStaggeredGridActivity.
+     */
+    private void loadButton28() {
+        View button27 = findViewById(R.id.button_28);
+        button27.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, NinePatchActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    /**
+     * 加载第29个button,事件中:打开 RecyclerViewStaggeredGridActivity.
+     */
+    private void loadButton29() {
+        View button29 = findViewById(R.id.button_29);
+        button29.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, MsgActivity.class);
             startActivity(intent);
         });
     }
