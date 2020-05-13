@@ -2,12 +2,15 @@ package com.jsflzhong.test2_noactivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jsflzhong.test2_noactivity.common.ActivityCollector;
 
 public abstract class BasicActivity extends AppCompatActivity {
+
+    private static final boolean LOG_SWITCH = false;
 
     private static final String TAG = "BasicActivity";
 
@@ -42,13 +45,15 @@ public abstract class BasicActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "@@@[onDestroy]");
+        if (LOG_SWITCH) {
+            Log.d(TAG, "@@@[onDestroy]");
+        }
         //用自定义集合来管理所有活动. 此处把本活动从list中移除.
         ActivityCollector.removeActivity(this);
     }
 
     public void loadView() {
-        Log.d(TAG,"@@@[loadButton] in parent");
+        Log.d(TAG,"@@@[loadView] in parent");
     }
 
     /**
@@ -56,7 +61,9 @@ public abstract class BasicActivity extends AppCompatActivity {
      * @param savedInstanceState savedInstanceState
      */
     public void getSavedInstanceState(Bundle savedInstanceState) {
-        Log.d(TAG, "@@@[getSavedInstanceState] in parent");
+        if(LOG_SWITCH) {
+            Log.d(TAG, "@@@[getSavedInstanceState] in parent");
+        }
     }
 
     /**
@@ -68,7 +75,9 @@ public abstract class BasicActivity extends AppCompatActivity {
      * 从intent中, 拿出来从上个活动传过来的数据
      */
     public void getIntentFromLastActivity() {
-        Log.d(TAG, "@@@[]getIntentFromLastActivity in parent");
+        if (LOG_SWITCH) {
+            Log.d(TAG, "@@@[]getIntentFromLastActivity in parent");
+        }
     }
 
     /**
@@ -79,7 +88,9 @@ public abstract class BasicActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "@@@[onStart]");
+        if(LOG_SWITCH) {
+            Log.d(TAG, "@@@[onStart]");
+        }
     }
 
     /**
@@ -90,7 +101,9 @@ public abstract class BasicActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "@@@[onResume]");
+        if(LOG_SWITCH) {
+            Log.d(TAG, "@@@[onResume]");
+        }
     }
 
     /**
@@ -99,7 +112,9 @@ public abstract class BasicActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "@@@[onRestart]");
+        if (LOG_SWITCH) {
+            Log.d(TAG, "@@@[onRestart]");
+        }
     }
 
     /**
@@ -114,7 +129,9 @@ public abstract class BasicActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "@@@[onPause]");
+        if(LOG_SWITCH) {
+            Log.d(TAG, "@@@[onPause]");
+        }
     }
 
     /**
@@ -125,6 +142,8 @@ public abstract class BasicActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, "@@@[onStop]");
+        if(LOG_SWITCH) {
+            Log.d(TAG, "@@@[onStop]");
+        }
     }
 }
