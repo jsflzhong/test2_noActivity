@@ -133,7 +133,13 @@
             android:id="@+id/button_31"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button 31, start send broadcast!"
+            android:text="Button 31, start MyStandardSenderActivity"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/button_32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button 32, start MyLocalBroadcastSenderActivity"
             android:textAllCaps="false"/>
     </LinearLayout>
 </ScrollView>

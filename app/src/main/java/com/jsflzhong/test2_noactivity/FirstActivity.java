@@ -23,6 +23,7 @@ import com.jsflzhong.test2_noactivity.layout.RecyclerViewActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewLinearRollingActivity;
 import com.jsflzhong.test2_noactivity.layout.RecyclerViewStaggeredGridActivity;
 import com.jsflzhong.test2_noactivity.layout.broadcast.receiver.BroadNetWorkActivity;
+import com.jsflzhong.test2_noactivity.layout.broadcast.sender.MyLocalBroadcastSenderActivity;
 import com.jsflzhong.test2_noactivity.layout.broadcast.sender.MyStandardSenderActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.DialogActivity;
 import com.jsflzhong.test2_noactivity.lifeCycle.NormalActivity;
@@ -88,6 +89,7 @@ public class FirstActivity extends BasicActivity {
         loadButton29();
         loadButton30();
         loadButton31();
+        loadButton32();
     }
 
     /**
@@ -391,6 +393,17 @@ public class FirstActivity extends BasicActivity {
         View button31 = findViewById(R.id.button_31);
         button31.setOnClickListener(v -> {
             Intent intent = new Intent(FirstActivity.this, MyStandardSenderActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    /**
+     * 加载第32个button,事件中: 打开MyLocalBroadcastSenderActivity
+     */
+    private void loadButton32() {
+        View button32 = findViewById(R.id.button_32);
+        button32.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, MyLocalBroadcastSenderActivity.class);
             startActivity(intent);
         });
     }

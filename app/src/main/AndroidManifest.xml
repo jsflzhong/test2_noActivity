@@ -13,13 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".layout.broadcast.sender.MyStandardSenderActivity"></activity>
+        <activity android:name=".layout.broadcast.sender.MyLocalBroadcastSenderActivity"></activity>
+        <activity android:name=".layout.broadcast.sender.MyStandardSenderActivity" />
 
         <receiver
             android:name=".layout.broadcast.receiver.MyStandardReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
+
                 <!-- 该字符串,与com.jsflzhong.test2_noactivity.FirstActivity.loadButton31中定义的字符串一致就可以,不用单独创建这个类. -->
                 <action android:name="com.jsflzhong.test2.noactivity.MY_BROADCAST" />
             </intent-filter>
