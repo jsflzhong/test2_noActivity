@@ -33,7 +33,9 @@ public class ActivityCollector {
         activities.clear();
 
         //也可以在销毁所有活动的代码后面再加上杀掉当前进程的代码，以保证程序完全退出.
-        android.os.Process.killProcess(android.os.Process.myPid());
+        //注意: 如果加了这行代码, 会导致在调用本方法后, 无法再继续执行下面的代码.
+        //例如:com.jsflzhong.test2_noactivity.BasicActivity.ForceOfflineReceiver.onReceive
+        //android.os.Process.killProcess(android.os.Process.myPid());
     }
 
 }

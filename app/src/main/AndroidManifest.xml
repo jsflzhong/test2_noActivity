@@ -5,6 +5,7 @@
     <!-- 当代码访问一些隐私数据时, 需要在这里配置对应的权限. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".layout.broadcast.sender.MyLocalBroadcastSenderActivity"></activity>
+        <activity android:name=".layout.LoginMainActivity"></activity>
+        <activity android:name=".layout.LoginActivity" >
+            <!--把程序的主页面变成登录页面.-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".layout.broadcast.sender.MyLocalBroadcastSenderActivity" />
         <activity android:name=".layout.broadcast.sender.MyStandardSenderActivity" />
 
         <receiver
@@ -21,7 +30,6 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-
                 <!-- 该字符串,与com.jsflzhong.test2_noactivity.FirstActivity.loadButton31中定义的字符串一致就可以,不用单独创建这个类. -->
                 <action android:name="com.jsflzhong.test2.noactivity.MY_BROADCAST" />
             </intent-filter>
@@ -69,7 +77,7 @@
             android:label="This is FirstActivity"
             android:launchMode="singleTop">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
