@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.jsflzhong.test2_noactivity.BasicActivity;
+import com.jsflzhong.test2_noactivity.FirstActivity;
 import com.jsflzhong.test2_noactivity.R;
 
 /**
@@ -25,6 +26,22 @@ public class LoginActivity extends BasicActivity {
     }
 
     private void handleElement() {
+        doLoginButton();
+        doToTestHomepageButton();
+    }
+
+    /**
+     * 跳转到第一个用于测试的主页面activity.
+     */
+    private void doToTestHomepageButton() {
+        Button toTestHomnepageButton = (Button) findViewById(R.id.toTestHomepage);
+        toTestHomnepageButton.setOnClickListener(v -> {
+            Intent firstActivityIntent = new Intent(this, FirstActivity.class);
+            startActivity(firstActivityIntent);
+        });
+    }
+
+    private void doLoginButton() {
         accountEdit = findViewById(R.id.account);
         passwordEdit = findViewById(R.id.password);
         login = findViewById(R.id.login);
