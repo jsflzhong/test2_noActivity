@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.jsflzhong.test2_noactivity.BasicActivity;
 import com.jsflzhong.test2_noactivity.FirstActivity;
 import com.jsflzhong.test2_noactivity.R;
+import com.jsflzhong.test2_noactivity.persistence.sample1.PersisMainActivity;
 
 /**
  * 登录活动
@@ -28,6 +29,14 @@ public class LoginActivity extends BasicActivity {
     private void handleElement() {
         doLoginButton();
         doToTestHomepageButton();
+        toPersistence1();
+    }
+
+    private void toPersistence1() {
+        Button persisButton1 = findViewById(R.id.persis1);
+        persisButton1.setOnClickListener(v -> {
+            startActivity(new Intent(this, PersisMainActivity.class));
+        });
     }
 
     /**

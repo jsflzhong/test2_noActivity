@@ -278,7 +278,8 @@
        1>.登录的activity: LoginActivity
        2>.广播发送器: 登录后跳转的页面的activity: LoginMainActivity.
             在该活动中, 发送了强制下线的广播.
-       3>.广播接收器: 为了让所有页面都能接收到这个广播, 就把接收器ForceOfflineReceiver放到了父类中,
+       3>.广播接收器: 所有的activity.
+            为了让所有页面都能接收到这个广播, 就把接收器ForceOfflineReceiver放到了父类中,
             该接收器的注册和注销,是在onResume()和onPause()中做的, 理由见方法上的注释.
        4>.Manifest.xml
             1.由于在ForceOfflineReceiver中弹出了一个系统级别的对话框，所以必须在AndroidManifest中声明如下权限：
@@ -291,6 +292,32 @@
                         <category android:name="android.intent.category.LAUNCHER" />
                     </intent-filter>
                 </activity>
+
+12.持久化技术
+    Android系统中主要提供了3种方式用于简单地实现数据持久化功能，
+    即: 1.文件存储; 2.SharedPreferences存储; 3.数据库存储
+
+    1>.文件存储
+        1).定义:
+            文件存储是Android中最基本的一种数据存储方式，它不对存储的内容进行任何的格式化处理，
+            所有数据都是原封不动地保存到文件当中的，因而它比较适合用于存储一些简单的文本数据或
+            二进制数据。如果你想使用文件存储的方式来保存一些较为复杂的文本数据，就需要定义一套
+            自己的格式规范，这样可以方便之后将数据从文件中重新解析出来。
+
+        2).API:
+            Context 类中提供了一个openFileOutput() 方法，可以用于将数据存储到指定的文件中。
+            这个方法接收两个参数，第一个参数是文件名，在文件创建的时候使用的就是这个名称，注意
+            这里指定的文件名不可以包含路径，因为所有的文件都是默认存储到/data/data/<package
+            name>/files/目录下的。第二个参数是文件的操作模式，主要有两种模式可选，MODE_PRIVATE
+            和MODE_APPEND。其中MODE_PRIVATE是默认的操作模式，表示当指定同样文件名的时候，
+            所写入的内容将会覆盖原文件中的内容，而MODE_APPEND则表示如果该文件已存在，就往文
+            件里面追加内容，不存在就创建新文件。
+
+        3).实践
+            1>.PersisMainActivity
+            2>.从IDE里看手机文件的方法:
+                书中的方式已经不推荐了, 推荐: View-->Tool Windows-->Device file explorer.
+
 
 
 
