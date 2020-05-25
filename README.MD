@@ -297,7 +297,7 @@
     Android系统中主要提供了3种方式用于简单地实现数据持久化功能，
     即: 1.文件存储; 2.SharedPreferences存储; 3.数据库存储
 
-    1>.文件存储
+    1>.第一种: 文件存储
         1).定义:
             文件存储是Android中最基本的一种数据存储方式，它不对存储的内容进行任何的格式化处理，
             所有数据都是原封不动地保存到文件当中的，因而它比较适合用于存储一些简单的文本数据或
@@ -305,19 +305,71 @@
             自己的格式规范，这样可以方便之后将数据从文件中重新解析出来。
 
         2).API:
-            Context 类中提供了一个openFileOutput() 方法，可以用于将数据存储到指定的文件中。
-            这个方法接收两个参数，第一个参数是文件名，在文件创建的时候使用的就是这个名称，注意
-            这里指定的文件名不可以包含路径，因为所有的文件都是默认存储到/data/data/<package
-            name>/files/目录下的。第二个参数是文件的操作模式，主要有两种模式可选，MODE_PRIVATE
-            和MODE_APPEND。其中MODE_PRIVATE是默认的操作模式，表示当指定同样文件名的时候，
-            所写入的内容将会覆盖原文件中的内容，而MODE_APPEND则表示如果该文件已存在，就往文
-            件里面追加内容，不存在就创建新文件。
+            1>.写文件:
+                Context 类中提供了一个openFileOutput() 方法，可以用于将数据存储到指定的文件中。
+                这个方法接收两个参数，第一个参数是文件名，在文件创建的时候使用的就是这个名称，注意
+                这里指定的文件名不可以包含路径，因为所有的文件都是默认存储到/data/data/<package
+                name>/files/目录下的。第二个参数是文件的操作模式，主要有两种模式可选，MODE_PRIVATE
+                和MODE_APPEND。其中MODE_PRIVATE是默认的操作模式，表示当指定同样文件名的时候，
+                所写入的内容将会覆盖原文件中的内容，而MODE_APPEND则表示如果该文件已存在，就往文
+                件里面追加内容，不存在就创建新文件。
+
+            2>.读文件:
+                Context 类中还提供了一个openFileInput() 方法，用于从文
+                件中读取数据。这个方法要比openFileOutput() 简单一些，它只接收一个参数，即要读取
+                的文件名，然后系统会自动到/data/data/<package name>/files/目录下去加载这个文件，并返回一
+                个FileInputStream 对象，得到了这个对象之后再通过Java流的方式就可以将数据读取出来了。
 
         3).实践
-            1>.PersisMainActivity
+            1>.PersisFileActivity
+                在onDestroy()里写文件, 在onCreate()里读文件.
             2>.从IDE里看手机文件的方法:
                 书中的方式已经不推荐了, 推荐: View-->Tool Windows-->Device file explorer.
+            3>.生成的文件
 
+    2>.第二种: SharedPreferences存储
+        1).定义
+            不同于文件的存储方式，SharedPreferences是使用键值对的方式来存储数据的。也就是说，当保
+            存一条数据的时候，需要给这条数据提供一个对应的键，这样在读取数据的时候就可以通过这
+            个键把相应的值取出来。而且SharedPreferences还支持多种不同的数据类型存储，如果存储的数
+            据类型是整型，那么读取出来的数据也是整型的；如果存储的数据是一个字符串，那么读取出
+            来的数据仍然是字符串。
+
+        2).API
+            要想使用SharedPreferences来存储数据，首先需要获取到SharedPreferences 对象。Android
+            中主要提供了3种方法用于得到SharedPreferences 对象。
+
+            01. Context 类中的getSharedPreferences() 方法
+                此方法接收两个参数，
+                第一个参数用于指定SharedPreferences文件的名称，如果指定的文件
+                不存在则会创建一个，SharedPreferences文件都是存放在/data/data/<package
+                name>/shared_prefs/目录下的。
+                第二个参数用于指定操作模式，目前只有MODE_PRIVATE
+                这一种模式可选，它是默认的操作模式，和直接传入0效果是相同的，表示只有当前的应用
+                程序才可以对这个SharedPreferences文件进行读写。其他几种操作模式均已被废弃，
+                MODE_WORLD_READABLE和MODE_WORLD_WRITEABLE这两种模式是在Android 4.2
+                版本中被废弃的，MODE_MULTI_PROCESS模式是在Android 6.0版本中被废弃的。
+            02. Activity 类中的getPreferences() 方法
+                这个方法和Context中的getSharedPreferences() 方法很相似，不过它只接收一个操作
+                模式参数，因为使用这个方法时会自动将当前活动的类名作为SharedPreferences的文件名。
+            03. PreferenceManager 类中的getDefaultSharedPreferences() 方法
+                这是一个静态方法，它接收一个Context 参数，并自动使用当前应用程序的包名作为前缀
+                来命名SharedPreferences文件。得到了SharedPreferences 对象之后，就可以开始向
+                SharedPreferences文件中存储数据了，主要可以分为3步实现。
+                (1) 调用SharedPreferences 对象的edit() 方法来获取一个SharedPreferences.Editor 对象。
+                (2) 向SharedPreferences.Editor 对象中添加数据，比如添加一个布尔型数据就使
+                用putBoolean() 方法，添加一个字符串则使用putString() 方法，以此类推。
+                (3) 调用apply() 方法将添加的数据提交，从而完成数据存储操作。
+
+        3).实践
+            PersisSharedPreferencesActivity.
+            生成的文件:
+                /data/data/com.example.sharedpreferencestest/shared_prefs/目录下，可以看到生成了一个data.xml
+
+        4).记住密码功能
+            用SharedPreferences作为持久化.
+            不推荐, 这里只作为示例, 因为不安全!
+                com.jsflzhong.test2_noactivity.layout.LoginActivity.doLoginButtonWithRememberPswdInSharedPreferences
 
 
 

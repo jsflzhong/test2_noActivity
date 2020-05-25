@@ -51,6 +51,7 @@ public class PersisSharedPreferencesActivity extends AppCompatActivity {
             editor.putString("name", "Tom");
             editor.putInt("age", 28);
             editor.putBoolean("married", false);
+            //别忘记apply.
             editor.apply();
         });
     }
