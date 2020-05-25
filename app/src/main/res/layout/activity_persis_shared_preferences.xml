@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!--点击按钮后,以SharedPreferences的方式保存数据-->
+    <Button
+        android:id="@+id/save_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save data"
+        android:textAllCaps="false"
+        />
+
+    <!--点击按钮后,以SharedPreferences的方式读取数据-->
+    <Button
+        android:id="@+id/restore_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restore data"
+        android:textAllCaps="false"
+        />
+</LinearLayout>

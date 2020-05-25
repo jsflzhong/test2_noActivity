@@ -9,7 +9,8 @@ import android.widget.Toast;
 import com.jsflzhong.test2_noactivity.BasicActivity;
 import com.jsflzhong.test2_noactivity.FirstActivity;
 import com.jsflzhong.test2_noactivity.R;
-import com.jsflzhong.test2_noactivity.persistence.sample1.PersisMainActivity;
+import com.jsflzhong.test2_noactivity.persistence.sample1.PersisFileActivity;
+import com.jsflzhong.test2_noactivity.persistence.sample1.PersisSharedPreferencesActivity;
 
 /**
  * 登录活动
@@ -30,12 +31,20 @@ public class LoginActivity extends BasicActivity {
         doLoginButton();
         doToTestHomepageButton();
         toPersistence1();
+        toPersistence2();
     }
 
     private void toPersistence1() {
         Button persisButton1 = findViewById(R.id.persis1);
         persisButton1.setOnClickListener(v -> {
-            startActivity(new Intent(this, PersisMainActivity.class));
+            startActivity(new Intent(this, PersisFileActivity.class));
+        });
+    }
+
+    private void toPersistence2() {
+        Button persisButton1 = findViewById(R.id.persis2);
+        persisButton1.setOnClickListener(v -> {
+            startActivity(new Intent(this, PersisSharedPreferencesActivity.class));
         });
     }
 

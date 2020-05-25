@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".persistence.sample1.PersisMainActivity"></activity>
+        <activity android:name=".persistence.sample1.PersisSharedPreferencesActivity"></activity>
+        <activity android:name=".persistence.sample1.PersisFileActivity" />
         <activity android:name=".layout.LoginMainActivity" />
         <activity android:name=".layout.LoginActivity">
 

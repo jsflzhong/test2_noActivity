@@ -47,6 +47,23 @@
             android:inputType="textPassword" />
     </LinearLayout>
 
+    <!--记住密码的功能-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/remember_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Remember password" />
+    </LinearLayout>
+
+    <!--登录按钮-->
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
@@ -66,7 +83,7 @@
             />
     </LinearLayout>
 
-    <!--跳转到持久化的测试主页-->
+    <!--跳转到通过file持久化的测试主页-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -74,7 +91,20 @@
             android:id="@+id/persis1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To persistence1"
+            android:text="To persistence1_file"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+
+    <!--跳转到通过SharedPreferences持久化的测试主页-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/persis2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To persistence2_SharedPreferences"
             android:textAllCaps="false"
             />
     </LinearLayout>
