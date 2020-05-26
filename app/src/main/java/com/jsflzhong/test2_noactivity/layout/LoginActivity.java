@@ -3,17 +3,21 @@ package com.jsflzhong.test2_noactivity.layout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.idescout.sql.SqlScoutServer;
 import com.jsflzhong.test2_noactivity.BasicActivity;
 import com.jsflzhong.test2_noactivity.FirstActivity;
 import com.jsflzhong.test2_noactivity.R;
 import com.jsflzhong.test2_noactivity.persistence.sample1.PersisFileActivity;
 import com.jsflzhong.test2_noactivity.persistence.sample1.PersisSharedPreferencesActivity;
+import com.jsflzhong.test2_noactivity.persistence.sqlite.MyDatabaseHelper;
 
 /**
  * 登录活动
@@ -23,6 +27,7 @@ public class LoginActivity extends BasicActivity {
     private EditText accountEdit;
     private EditText passwordEdit;
     private Button login;
+    private MyDatabaseHelper dbHelper;
 
     //持久化相关
     private SharedPreferences pref;
@@ -35,11 +40,35 @@ public class LoginActivity extends BasicActivity {
         handleElement();
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        SqlScoutServer.create(this, getPackageName());
+    }
+
     private void handleElement() {
         doLoginButtonWithRememberPswdInSharedPreferences();
         doToTestHomepageButton();
         toPersistence1();
         toPersistence2();
+        createDB();
+    }
+
+    /**
+     * 创建SQLite DB
+     * 数据库文件会存放在/data/data/<package name>/databases/目录下。
+     *
+     * 注意:
+     *      如果数据库已经存在, 那么继续直接更新表结构的话, 是无效的, 因为API会在DB已存在的时候去读取而已.
+     *      所以,可以通过往构造函数里传入更高的版本号, 就会自动触发MyDatabaseHelper那边的onUpgrade()方法,在那里面有drop table的操作.
+     */
+    private void createDB() {
+        Button createDbButton = findViewById(R.id.create_database);
+        dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
+        createDbButton.setOnClickListener(v -> {
+            //这里调用getWritableDatabase()这个固定API即可, 会自动调用MyDatabaseHelper那边的onCreate().
+            dbHelper.getWritableDatabase();
+        });
     }
 
     private void toPersistence1() {

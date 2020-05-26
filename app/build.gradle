@@ -39,4 +39,5 @@ dependencies {
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
 
     implementation 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.idescout.sql:sqlscout-server:4.1'
 }
